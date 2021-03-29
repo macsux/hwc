@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net45</TargetFramework>
+<!--    <RuntimeIdentifiers>win-x64;win-x86</RuntimeIdentifiers>-->
+    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <RootNamespace>NMica.Hwc</RootNamespace>
+    <AssemblyName>hwc</AssemblyName>
+    <AssemblyTitle>Hosted Web Core .NET</AssemblyTitle>
+    <OutputType>Exe</OutputType>
+    
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MSBuild.Microsoft.VisualStudio.Web.targets" Version="14.0.0.3" />
+
+  </ItemGroup>
+</Project>

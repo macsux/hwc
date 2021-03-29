@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net45</TargetFramework>
+        <RootNamespace>NMica.HttpModules.Logging</RootNamespace>
+        <AssemblyName>NMica.HttpModules.Logging</AssemblyName>
+        <PackageId>NMica.HttpModules.Logging</PackageId>
+        <Authors>Andrew Stakhov</Authors>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Lib.Harmony" Version="2.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.CSharp" />
+      <Reference Include="System.Web" />
+    </ItemGroup>
+
+</Project>

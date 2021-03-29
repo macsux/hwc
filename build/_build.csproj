@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+<!--    <RuntimeIdentifier>linux-x64</RuntimeIdentifier>-->
+<!--    <RuntimeIdentifiers>win-x64;win-x86</RuntimeIdentifiers>-->
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Nuke</RootNamespace>
+    <NoWarn>CS0649;CS0169</NoWarn>
+    <NukeRootDirectory>..</NukeRootDirectory>
+    <NukeScriptDirectory>..</NukeScriptDirectory>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="5.0.1" />
+    <PackageReference Include="Ductus.FluentDocker" Version="2.8.2" />
+    <PackageReference Include="Lib.Harmony" Version="2.0.4" />
+    <PackageReference Include="LibGit2Sharp" Version="0.26.2" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.8.0" />
+    <PackageReference Include="MSBuild.Microsoft.VisualStudio.Web.targets" Version="14.0.0.3" />
+    <PackageReference Include="NMica" Version="2.1.4" />
+    <PackageReference Include="Nuke.Common" Version="5.0.2" />
+    <PackageDownload Include="nbgv" Version="[3.3.37]" />
+    <PackageReference Include="Microsoft.Build.Locator" Version="1.4.1" />
+
+    <PackageReference Include="NuGet.Frameworks" Version="5.8.0" />
+    <PackageReference Include="NuGet.Packaging" Version="5.8.0" />
+    <PackageReference Include="NuGet.Versioning" Version="5.8.0" />
+    <PackageReference Include="NuGet.ProjectModel" Version="5.8.0" />
+    <ProjectReference Include="..\buildGenerator\_buildGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+ 
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="IInit.cs" />
+    <Compile Remove="Build.Docker.cs" />
+    <Compile Remove="Build.Git.cs" />
+    <Compile Remove="Build.GitHub.cs" />
+    <Compile Remove="Build.Versioning.cs" />
+    <Compile Remove="Components\IProvideOutput.cs" />
+    <Compile Remove="Build.Nuget.cs" />
+  </ItemGroup>
+
+<!--  <ItemGroup>-->
+<!--    <PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="3.8.0">-->
+<!--      <PrivateAssets>all</PrivateAssets>-->
+<!--      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
+<!--    </PackageReference>-->
+<!--  </ItemGroup>-->
+</Project>
