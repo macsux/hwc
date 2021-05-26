@@ -1,6 +1,6 @@
 ﻿using Nuke.Common;
 using Nuke.Components.GitHub;
-using Nuke.Components.Package.Nuget;
+using Nuke.Components.Package;
 
 namespace Nuke.Components
 {

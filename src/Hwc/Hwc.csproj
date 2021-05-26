@@ -1,13 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net45</TargetFramework>
+<!--    <TargetFramework>net45</TargetFramework>-->
+    <TargetFramework>net5.0</TargetFramework>
 <!--    <RuntimeIdentifiers>win-x64;win-x86</RuntimeIdentifiers>-->
+<!--    <RuntimeIdentifier>win-x64</RuntimeIdentifier>-->
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
     <RootNamespace>NMica.Hwc</RootNamespace>
     <AssemblyName>hwc</AssemblyName>
     <AssemblyTitle>Hosted Web Core .NET</AssemblyTitle>
     <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
     
   </PropertyGroup>
   <ItemGroup>

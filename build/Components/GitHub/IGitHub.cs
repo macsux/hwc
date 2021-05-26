@@ -30,45 +30,21 @@ namespace Nuke.Components.GitHub
     public interface IGitHub : INukeBuild, IVersion, IPackageArtifacts, INukeBuildEventsAware
     {
         [Parameter("GitHub repository url")] 
-        string GitHubUrl
-        {
-            get => this.Get();
-            set => this.Set(value);
-        }
+        string GitHubUrl { get => this.Get(); set => this.Set(value); }
 
         [Parameter("Release name when creating or updating artifacts to GitHub. Defaults to 'v{NUGET_VERSION}`")] 
-        string GitHubReleaseName
-        {
-            get => this.Get();
-            set => this.Set(value);
-        }
+        string GitHubReleaseName { get => this.Get(); set => this.Set(value); }
 
         [Parameter("GitHub personal access token with access to the repo")] 
-        string GitHubToken
-        {
-            get => this.Get();
-            set => this.Set(value);
-        }
+        string GitHubToken { get => this.Get(); set => this.Set(value); }
 
-        [GitHubClient] GitHubClient GitHubClient
-        {
-            get => this.Get();
-            set => this.Set(value);
-        }
+        [GitHubClient] GitHubClient GitHubClient { get => this.Get(); set => this.Set(value); }
 
         string GitHubNugetPackageFeedUrl => $"https://nuget.pkg.github.com/{GitHubRepoOwner}/index.json";
 
-        string GitHubRepoOwner
-        {
-            get => this.Get();
-            set => this.Set(value);
-        }
+        string GitHubRepoOwner { get => this.Get(); set => this.Set(value); }
         
-        string GitHubRepoName
-        {
-            get => this.Get();
-            set => this.Set(value);
-        }
+        string GitHubRepoName { get => this.Get(); set => this.Set(value); }
 
 
         void INukeBuildEventsAware.OnBuildInitialized()

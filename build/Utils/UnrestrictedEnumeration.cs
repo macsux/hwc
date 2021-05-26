@@ -11,11 +11,14 @@ using Nuke.Common.Utilities;
 namespace Nuke.Utils
 {
 #pragma warning disable 660,661
-        public class UnrestrictedEnumeration : Enumeration
+        public abstract class UnrestrictedEnumeration : Enumeration
 #pragma warning restore 660,661
         {
             public static bool operator ==(UnrestrictedEnumeration a, UnrestrictedEnumeration b) => EqualityComparer<UnrestrictedEnumeration>.Default.Equals(a, b);
             public static bool operator !=(UnrestrictedEnumeration a, UnrestrictedEnumeration b) => !EqualityComparer<UnrestrictedEnumeration>.Default.Equals(a, b);
+            public static implicit operator string(UnrestrictedEnumeration value) => value?.Value;
+
+
             public class TypeConverterUnrestricted<T> : TypeConverter where T : UnrestrictedEnumeration
             {
                 public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)

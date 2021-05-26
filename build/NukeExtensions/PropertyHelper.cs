@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
@@ -64,14 +65,20 @@ namespace Nuke.NukeExtensions
             if (attribute != null)
             {
                 val = attribute.TryGetValue(property, instance: instance);
-                instance.DoSet(property, val);
-                return val;
+                if (val != null)
+                {
+                    instance.DoSet(property, val);
+                    return val;
+                }
             }
 
             // make sure any list/arrays are initialized
-            if (defaultValue == null && typeof(System.Collections.ICollection).IsAssignableFrom(property.PropertyType) && !property.PropertyType.IsInterface)
+            if (defaultValue == null && property.PropertyType.IsGenericType &&   property.PropertyType.GetGenericTypeDefinition().GetInterfaces().Select(x => x.IsGenericType ? x.GetGenericTypeDefinition() : x).Contains(typeof(ICollection<>)))
             {
-                defaultValue = Activator.CreateInstance(property.PropertyType);
+                if (!property.PropertyType.IsInterface)
+                    defaultValue = Activator.CreateInstance(property.PropertyType);
+                else
+                    defaultValue = Activator.CreateInstance(typeof(List<>).MakeGenericType(property.PropertyType.GenericTypeArguments));
             }
             
             val = property.PropertyType.IsValueType ? Activator.CreateInstance(property.PropertyType) : defaultValue;

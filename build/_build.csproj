@@ -20,7 +20,7 @@
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.8.0" />
     <PackageReference Include="MSBuild.Microsoft.VisualStudio.Web.targets" Version="14.0.0.3" />
     <PackageReference Include="NMica" Version="2.1.4" />
-    <PackageReference Include="Nuke.Common" Version="5.0.2" />
+    <PackageReference Include="Nuke.Common" Version="5.1.2" />
     <PackageDownload Include="nbgv" Version="[3.3.37]" />
     <PackageReference Include="Microsoft.Build.Locator" Version="1.4.1" />
 
@@ -40,6 +40,9 @@
     <Compile Remove="Build.Versioning.cs" />
     <Compile Remove="Components\IProvideOutput.cs" />
     <Compile Remove="Build.Nuget.cs" />
+    <Compile Remove="Components\ITargetDefinitionWithInput.cs" />
+    <Compile Remove="NukeExtensions\ProjectInfo.cs" />
+    <Compile Remove="Compilation\BuildConfiguration.cs" />
   </ItemGroup>
 
 <!--  <ItemGroup>-->
